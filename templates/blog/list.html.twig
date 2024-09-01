@@ -1,0 +1,29 @@
+{# tempaltes/blog/list.html.twig #}
+
+<h1>Blog Posts</h1>
+
+<p><a href="{{ signUpPageUrl }}">Sign Up Page</a></p>
+<p><a href="{{ userProfilePageUrl }}">User Profile Page</a></p>
+<p><a href="{{ absoluteSignUpPageUrl }}">Absolute Sign Up Page</a></p>
+<p><a href="{{ signUpPageInDutchUrl }}">Sign Up Page in Dutch</a></p>
+
+<p>Current Route Name: {{ routeName}}</p>
+
+<p>Route Parameters:</p>
+<ul>
+    {% for key, value in routeParameters %}
+        <li><strong>{{ key }}:</strong> {{ value }}</li>
+    {% endfor %}
+<ul>
+
+
+
+    {% for post in posts %}
+        <li>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+        </li>
+    {% else %}
+        <p>No blog posts found.</p>
+    {% endfor %}
+</ul>
